@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧑‍🌾 Market Price Dashboard - Farmers</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/marketprice.css" />
+  <script src="/dark.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar flex justify-between items-center px-6 py-4  shadow-md sticky top-0 z-50">
+    <div class="flex items-center gap-3 logo-container">
+      <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
+      <h1 class="text-xl font-bold text-green-600"></h1>
+    </div>
+    <div class="nav-buttons flex items-center gap-4">
+      <button id="theme-toggle" class="text-xl">🌙</button>
+      <a href="index.html" class="nav-btn">Pre AI</a>
+      <a href="cropd.html" class="nav-btn">Post AI</a>
+      <a href="/recomendation.html" class="nav-btn">recommendation</a>
+      <a href="/marketprice.html" class="nav-btn">marketprice</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <h2 class="neon-heading">📊 Daily Market Prices for Farmers</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <select id="state">
+        <option value="">Select State</option>
+      </select>
+      
+      <select id="district">
+        <option value="">Select District</option>
+      </select>
+      
+
+    <select id="commodity">
+      <option value="">Select Crop</option>
+      <option>Tomato</option>
+      <option>Banana</option>
+      <option>Paddy(Dhan)(Common)</option>
+      <option>Dry Chillies</option>
+    </select>
+
+    <button onclick="fetchMarketData()">Get Prices</button>
+  </div>
+
+  <!-- Market Price Table -->
+  <table id="marketTable">
+    <thead>
+      <tr>
+        <th>📍 State</th>
+        <th>🏙️ District</th>
+        <th>🏪 Market</th>
+        <th>🌾 Crop</th>
+        <th>🔍 Variety</th>
+        <th>⭐ Grade</th>
+        <th>📅 Date</th>
+        <th>⬇️ Min (₹)</th>
+        <th>⬆️ Max (₹)</th>
+        <th>📈 Modal (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="10">Please select filters to view today's prices.</td></tr>
+    </tbody>
+  </table>
+
+  <script src="marketprice.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Recommendation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/recomendation.css">
+  <script src="/dark.js"></script>
+</head>
+<body>
+
+  
+  <!-- Navbar -->
+  <nav class="navbar flex justify-between items-center px-6 py-4  shadow-md sticky top-0 z-50">
+    <div class="flex items-center gap-3 logo-container">
+      <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
+      <h1 class="text-xl font-bold text-green-600"></h1>
+    </div>
+    <div class="nav-buttons flex items-center gap-4">
+      <button id="theme-toggle" class="text-xl">🌙</button>
+      <a href="index.html" class="nav-btn">Pre AI</a>
+      <a href="cropd.html" class="nav-btn">Post AI</a>
+      <a href="/recomendation.html" class="nav-btn">recommendation</a>
+      <a href="/marketprice.html" class="nav-btn">marketprice</a>
+    </div>
+  </nav>
+
+  <!-- 🧪 Crop Recommendation Form -->
+  <div class="container">
+    <h1>🌾 Crop Recommendation System</h1>
+    
+    <label>🧪 Nitrogen (N)</label>
+    <input type="number" id="n" step="0.1" placeholder="e.g. 90">
+
+    <label>🧪 Phosphorus (P)</label>
+    <input type="number" id="p" step="0.1" placeholder="e.g. 40">
+
+    <label>🧪 Potassium (K)</label>
+    <input type="number" id="k" step="0.1" placeholder="e.g. 43">
+
+    <label>🌡 Temperature (°C)</label>
+    <input type="number" id="temperature" step="0.1" placeholder="e.g. 25.6">
+
+    <label>💧 Humidity (%)</label>
+    <input type="number" id="humidity" step="0.1" placeholder="e.g. 80">
+
+    <label>🌱 Soil pH</label>
+    <input type="number" id="ph" step="0.1" placeholder="e.g. 6.5">
+
+    <label>🌧 Rainfall (mm)</label>
+    <input type="number" id="rainfall" step="0.1" placeholder="e.g. 200">
+
+    <button onclick="recommendCrop()">Get Recommendation</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script src="/recomendation.js"></script>
+</body>
+</html>

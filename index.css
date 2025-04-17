@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #f5f7fa;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    height: 64px; /* Set a consistent height */
+    overflow: hidden;
+  }
+  
+  .logo {
+    transform: scale(1); /* Normal size */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logo:hover {
+    transform: scale(1.15); /* Slight zoom on hover */
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .nav-btn {
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-btn:hover {
+    color: #00ffcc;
+  }
+  
+  /* Main Layout */
+  .main-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  /* Left Sections */
+  .left-sections {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Notification Panel (Reduced Width) */
+.notification-panel {
+    flex: 1;
+    min-width: 240px;
+    max-width: 300px;
+    border-left: 4px solid #ff9800;
+    background-color: #ffffff;
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+  }
+  
+  /* Sensor Container Inside Notification Panel */
+  .sensor-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+  }
+  
+  /* Sensor Section Title */
+  .sensor-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Sensor Data Row */
+  .sensor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #e0e0e0;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progress-bar div {
+    height: 100%;
+    border-radius: 4px;
+  }
+  
+  /* Max Values - Green */
+  .progress-bar.max div {
+    background: #4CAF50;
+  }
+  
+  /* Min Values - Red */
+  .progress-bar.min div {
+    background: #FF5252;
+  }
+  
+  /* Value Text Colors */
+  .value-text.green {
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .value-text.red {
+    color: #FF5252;
+    font-weight: bold;
+  }
+  
+  
+  
+  /* Common Card Styling */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Real-Time Data Card */
+.realtime-card {
+  border-left: 4px solid #2196f3;
+  padding: 20px;
+  overflow-x: auto; /* Optional: allows horizontal scroll on smaller screens */
+}
+
+/* Parameter Row - Flex Container for Cards */
+.parameter-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: nowrap; /* Ensures all cards stay in one row */
+  width: 100%;
+}
+
+/* Individual Parameter Card */
+.parameter-card {
+  flex: 0 0 20%; /* 4 cards side by side with spacing (100% - 3 * gap) */
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #00bfff, #ff69b4) 1;
+  min-width: 220px;
+}
+
+/* Optional hover effect */
+.parameter-card:hover {
+  transform: translateY(-2px);
+} 
+  /* Bar container */
+  .bar {
+    display: flex;
+    gap: 2px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  
+  .bar div {
+    width: 10px;
+    height: 30px;
+    background: #ccc; /* default - gray */
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+  
+  /* Value box */
+  .value-display {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .parameter-card p {
+    font-size: 0.875rem;
+    color: #4a4a4a; /* Neutral dark gray */
+    margin-top: 8px;
+    font-weight: 500;
+}
+  
+  /* Weather Forecasting Card */
+  .weather-card {
+  border-left: 4px solid #ff9800;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px; /* optional, for large screens */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+#forecastContainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjusted for neat spacing */
+}
+
+.forecast-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 170px; /* Adjusted for better visibility */
+    text-align: center;
+    border-left: 4px solid #00ffd9;
+}
+
+.forecast-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-item h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.forecast-item p {
+    color: #555;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}
+
+.forecast-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.forecast-item li {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 3px 0;
+}
+
+.forecast-item img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* Default Light Theme */
+body {
+    background-color: #f5f7fa;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #e3f2fd;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: background 0.3s;
+}
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+    background-color: #1a1a1a;
+}
+
+/* Logo */
+.logo {
+    filter: invert(0); /* Normal in Light Mode */
+    transition: filter 0.3s;
+}
+
+/* Invert Logo in Dark Mode */
+body.dark-mode .logo {
+    filter: invert(1);
+}
+
+/* Dark Mode Navigation Buttons */
+body.dark-mode .nav-btn {
+    color: white;
+}
+
+body.dark-mode .nav-btn:hover {
+    color: #00ffcc; /* Neon blue hover */
+}
+/* Dark Mode Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode .theme-toggle-btn {
+    color: yellow;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Left Sections */
+.left-sections {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Dark Mode for Cards */
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+/* Dark Mode for Real-Time Data Container */
+body.dark-mode .realtime-card {
+    background: linear-gradient(135deg, #1a1c18, #1a1a1a); /* Dark gradient */
+    border-left: 4px solid #00aaff; /* Neon blue */
+    box-shadow: 0 0 12px #00aaff; /* Neon blue glow */
+    color: #00ffcc !important; /* Neon blue text */
+}
+
+/* Dark Mode for Individual Parameter Container */
+body.dark-mode .parameter-card {
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a); /* Dark gradient */
+    border: 2px solid #ffffff; /* Neon blue border */
+    box-shadow: 0 0 10px #00aaff; /* Neon blue glow */
+    color: #ffffff; /* White text (no glow) */
+    transform: scale(1.02); /* Slight pop-out effect */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect for Neon Blue Glow */
+body.dark-mode .parameter-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00aaff, 0 0 25px #00aaff;
+}
+/* Dark Mode styling */
+body.dark-mode .value-display {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Dark Mode Style */
+body.dark-mode .parameter-card p {
+  color: #cccccc; /* Soft light gray for readability */
+}
+
+/* Notification Panel */
+.notification-panel {
+    flex: 1;
+    min-width: 240px;
+    max-width: 300px;
+    border-left: 4px solid #ff9800;
+    background-color: #ffffff;
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+/* Dark Mode for Notification Panel */
+body.dark-mode .notification-panel {
+    background-color: #3d3636;
+    box-shadow: 0 0 8px #ff9800;
+}
+
+/* Sensor Data Styling */
+.sensor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+/* Dark Mode for MIN & MAX Values */
+body.dark-mode .sensor-title {
+    color: #ff9800; /* Orange color in dark mode */
+}
+
+/* Progress Bar */
+.progress-bar {
+    flex-grow: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #e0e0e0;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark Mode for Progress Bar */
+body.dark-mode .progress-bar {
+    background: #555;
+}
+
+/* Bar container */
+.bar {
+    display: flex;
+    gap: 2px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.bar div {
+    width: 10px;
+    height: 30px;
+    background: #ccc; /* default - gray */
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode for Bars */
+body.dark-mode .bar div {
+    background: #444;
+}
+
+/* Dark Mode for Weather Forecast Card */
+body.dark-mode .weather-card {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 0 15px #ff9800;
+    color: white !important; /* Ensure text is visible */
+}
+
+/* Dark Mode for Individual Forecast Items */
+body.dark-mode .forecast-item {
+    background-color: #2a2a2a !important;
+    color: white !important;
+    border-left: 4px solid #00ffcc !important;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+/* Dark Mode for Forecast Titles */
+body.dark-mode .forecast-item h3 {
+    color: #ffcc00 !important; /* Neon Yellow */
+}
+
+/* Dark Mode for Forecast Text */
+body.dark-mode .forecast-item p,
+body.dark-mode .forecast-item li {
+    color: #ffffff !important;
+}
+
+/* Dark Mode for Weather Icons */
+body.dark-mode .forecast-item img {
+    filter: brightness(1.2);
+}

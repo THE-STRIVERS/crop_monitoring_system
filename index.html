@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STRIVERS Crop Monitoring</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="dark.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="navbar flex justify-between items-center px-6 py-4  shadow-md sticky top-0 z-50">
+    <div class="flex items-center gap-3 logo-container">
+      <img src="updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
+      <h1 class="text-xl font-bold text-green-600"></h1>
+    </div>
+    <div class="nav-buttons flex items-center gap-4">
+      <button id="theme-toggle" class="text-xl">🌙</button>
+      <a href="index.html" class="nav-btn">Pre AI</a>
+      <a href="cropd.html" class="nav-btn">Post AI</a>
+      <a href="recomendation.html" class="nav-btn">recommendation</a>
+      <a href="marketprice.html" class="nav-btn">marketprice</a>
+    </div>
+  </nav>
+  
+
+  <!-- Main Container -->
+<div class="main-container flex flex-col lg:flex-row flex-wrap px-4 py-6 gap-6">
+
+    <!-- Left Section -->
+    <div class="left-sections flex-1 space-y-6">
+  
+      <!-- Real-Time Data Card -->
+<section class="card realtime-card p-6 bg-white rounded-lg shadow-lg">
+<h2 class="text-2xl font-bold mb-6">Real-Time Data</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  
+          <!-- Container for rows -->
+<div class="parameter-row">
+  <!-- Row 1 -->
+  <div class="parameter-card">
+    <div class="value-display" id="temperature-value">0.0</div>
+    <div class="bar mb-1" id="temperature-bar">
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <p class="text-sm text-gray-500 mt-2">🌡️Temperature (°C)</p>
+  </div>
+
+  <div class="parameter-card">
+    <div class="value-display" id="humidity-value">0.0</div>
+    <div class="bar mb-1" id="humidity-bar">
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <p class="text-sm text-gray-500 mt-2">💧Humidity (%)</p>
+  </div>
+
+  <div class="parameter-card">
+    <div class="value-display" id="moisture-value">0.0</div>
+    <div class="bar mb-1" id="moisture-bar">
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <p class="text-sm text-gray-500 mt-2">🌱 Soil Moisture(w/d)</p>
+  </div>
+
+  <div class="parameter-card">
+    <div class="value-display" id="light-value">0.0</div>
+    <div class="bar mb-1" id="light-bar">
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <p class="text-sm text-gray-500 mt-2">☀️ Light Intensity(lux)</p>
+  </div>
+</div>
+</section>
+  
+      <!-- Weather Forecast Section -->
+<section class="weather-card p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-xl font-bold text-center">
+      5-Day Weather Forecast for <span id="locationName" class="text-orange-600">Loading...</span>
+    </h2>
+    <div id="forecastContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
+      <!-- Forecast cards will be injected here -->
+    </div>
+  </section>
+    </div>
+  
+  <!-- Notification Panel (Including Max & Min Values) -->
+<aside class="notification-panel">
+    <h2 class="text-xl font-bold mb-4">Notifications</h2>
+    <ul id="notifications-list" class="list-disc pl-4">
+      <li>No notifications yet.</li>
+    </ul>
+  
+    <!-- Max & Min Values Section -->
+<div class="sensor-container">
+  <h3 class="sensor-title">MAX VALUES</h3>
+
+  <div class="sensor">
+    <span>Soil Moisture</span>
+    <div class="progress-bar max"><div style="width: 80%;"></div></div>
+    <span class="value-text green">795.0</span>
+  </div>
+  
+  <div class="sensor">
+    <span>Humidity</span>
+    <div class="progress-bar max"><div style="width: 85%;"></div></div>
+    <span class="value-text green">90%</span>
+  </div>
+
+  <div class="sensor">
+    <span>Temperature</span>
+    <div class="progress-bar max"><div style="width: 75%;"></div></div>
+    <span class="value-text green">37.1°C</span>
+  </div>
+
+  <div class="sensor">
+    <span>Light Intensity</span>
+    <div class="progress-bar max"><div style="width: 90%;"></div></div>
+    <span class="value-text green">920 lx</span>
+  </div>
+
+  <h3 class="sensor-title">MIN VALUES</h3>
+
+  <div class="sensor">
+    <span>Soil Moisture</span>
+    <div class="progress-bar min"><div style="width: 30%;"></div></div>
+    <span class="value-text red">312.0</span>
+  </div>
+  
+  <div class="sensor">
+    <span>Humidity</span>
+    <div class="progress-bar min"><div style="width: 40%;"></div></div>
+    <span class="value-text red">30%</span>
+  </div>
+
+  <div class="sensor">
+    <span>Temperature</span>
+    <div class="progress-bar min"><div style="width: 20%;"></div></div>
+    <span class="value-text red">10.0°C</span>
+  </div>
+
+  <div class="sensor">
+    <span>Light Intensity</span>
+    <div class="progress-bar min"><div style="width: 15%;"></div></div>
+    <span class="value-text red">140 lx</span>
+  </div>
+</div>
+
+  </aside>
+  
+  </div>
+</section>   
+  <script src="index.js"></script>
+</body>
+</html>
