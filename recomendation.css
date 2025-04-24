@@ -84,7 +84,36 @@
   body.dark-mode .nav-btn:hover {
     color: #00ffc3;
   }
-  
+  /* === Nav Dropdown === */
+.nav-dropdown {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+}
+
+.nav-dropdown:focus {
+  outline: none;
+  border-color: #00bfa5;
+}
+
+body.dark-mode .nav-dropdown {
+  color: #e0e0e0;
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+/* Neon turquoise text on hover */
+.nav-dropdown:hover {
+  color: #00ffc3;
+  border-color: #00ffc3;
+}
+
+
   /* ===== Theme Toggle Button ===== */
   #theme-toggle {
     background: none;
@@ -139,6 +168,17 @@
     margin-bottom: 5px;
     font-weight: 500;
     font-size: 0.95rem;
+  }
+  .container select{
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
   }
   
   .container input {

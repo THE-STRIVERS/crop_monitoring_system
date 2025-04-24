@@ -16,13 +16,30 @@
     <div class="flex items-center gap-3 logo-container">
       <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
       <h1 class="text-xl font-bold text-green-600"></h1>
+      <!-- 🌐 Google Translate Dropdown -->
+    <div id="google_translate_element" class="ml-2"></div>
     </div>
     <div class="nav-buttons flex items-center gap-4">
       <button id="theme-toggle" class="text-xl">🌙</button>
       <a href="index.html" class="nav-btn">Pre AI</a>
       <a href="cropd.html" class="nav-btn">Post AI</a>
       <a href="/recomendation.html" class="nav-btn">recommendation</a>
-      <a href="/marketprice.html" class="nav-btn">marketprice</a>
+      <select id="moreDropdown" class="nav-dropdown">
+        <option disabled selected>More</option>
+        <option value="marketprice.html">Market Price</option>
+        <option  value="chatbot.html">Chatbot</option>
+        <option value="ecommerce.html">Fertilizer</option>
+      </select>
+      <script>
+        document.getElementById('moreDropdown').addEventListener('change', function () {
+          const selectedValue = this.value;
+          if (selectedValue) {
+            window.location.href = selectedValue;
+          }
+        });
+      </script>
+      
+      
     </div>
   </nav>
 
@@ -71,7 +88,17 @@
       <tr><td colspan="10">Please select filters to view today's prices.</td></tr>
     </tbody>
   </table>
-
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,bn,mr,pa,ur', // add more languages as needed
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
   <script src="marketprice.js"></script>
 </body>
 </html>

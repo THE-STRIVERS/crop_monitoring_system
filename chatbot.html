@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crop Disease Chatbot</title>
+  <link rel="stylesheet" href="chatbot.css" />
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="/dark.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar flex justify-between items-center px-6 py-4  shadow-md sticky top-0 z-50">
+    <div class="flex items-center gap-3 logo-container">
+      <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
+    </div>
+    <div class="nav-buttons flex items-center gap-4">
+      <button id="theme-toggle" class="nav-btn theme-toggle text-xl">🌙</button>
+      <a href="index.html" class="nav-btn">Pre AI</a>
+      <a href="cropd.html" class="nav-btn">Post AI</a>
+      <a href="/recomendation.html" class="nav-btn">recommendation</a>
+      <select id="moreDropdown" class="nav-dropdown">
+        <option disabled selected>More</option>
+        <option value="marketprice.html">Market Price</option>
+        <option href="/chatbot.html" value="/chatbot.html">Chatbot</option>
+        <option value="ecommerce.html">Fertilizer</option>
+      </select>
+      <script>
+        document.getElementById('moreDropdown').addEventListener('change', function () {
+          const selectedValue = this.value;
+          if (selectedValue) {
+            window.location.href = selectedValue;
+          }
+        });
+      </script>
+    </div>
+  </nav>
+
+  <!-- 🌾 Chatbot Interface -->
+  <div class="chat-container">
+    <div class="messages" id="messages">
+      <div class="message bot">
+        <div class="bot-text" data-original="Hi there! Ask me about crop diseases 🌱">Hi there! Ask me about crop diseases 🌱</div>
+        <button class="translate-button" onclick="toggleTranslate(this)">Translate to Telugu</button>
+      </div>
+    </div>
+    <div class="input-container">
+      <button class="mic-button" onclick="startListening()">🎙</button>
+      <input type="text" id="userInput" placeholder="Type or speak your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>

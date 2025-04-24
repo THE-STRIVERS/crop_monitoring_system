@@ -60,7 +60,7 @@ body.dark-mode .logo {
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .nav-btn {

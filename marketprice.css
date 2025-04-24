@@ -83,6 +83,48 @@ body.dark-mode .logo {
   body.dark-mode .nav-btn:hover {
     color: #00ffc3;
   }
+  /* === Nav Dropdown === */
+.nav-dropdown {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect with neon turquoise */
+.nav-dropdown:hover {
+  color: #00ffc3;
+  border-color: #00ffc3;
+}
+
+/* Dark mode dropdown styling */
+body.dark-mode .nav-dropdown {
+  color: #e0e0e0;
+  background-color: #1e1e1e;
+  border-color: transparent;
+}
+
+body.dark-mode .nav-dropdown:hover {
+  color: #00ffc3;
+  border-color: #00ffc3;
+}
+
+/* Dropdown options styling (best-effort) */
+.nav-dropdown option {
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark-mode .nav-dropdown option {
+  background-color: #1e1e1e;
+  color: #00ffc3;
+}
+
   
   /* ===== Theme Toggle Button ===== */
   #theme-toggle {

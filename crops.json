@@ -1,0 +1,724 @@
+{
+    "crops": [
+      {
+        "name": "Tomato",
+        "season": "Warm season",
+        "sowing_period": "Late winter to early spring (February - April)",
+        "harvest_period": "Summer to early fall (June - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 16:08:24 NPK at 3.5 kg/acre",
+            "extra_info": "Incorporate fertilizer into the soil during land preparation. Ensure even distribution to avoid root burn."
+          },
+          {
+            "stage": "Vegetative",
+            "days_after_planting": 20,
+            "application": "Apply 00:52:34 NPK at 3.5 kg/acre",
+            "extra_info": "Apply near the root zone and irrigate lightly to aid absorption. Avoid applying during peak sunlight to prevent leaf burn."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 35,
+            "application": "Apply 13:00:45 NPK at 3.5 kg/acre",
+            "extra_info": "Use fertigation for precise application. Monitor soil moisture to prevent over-fertilization."
+          },
+          {
+            "stage": "Fruit Setting",
+            "days_after_planting": 50,
+            "application": "Apply Calcium Nitrate at 5 kg/acre",
+            "extra_info": "Apply in split doses to enhance fruit quality. Ensure adequate irrigation to facilitate nutrient uptake."
+          },
+          {
+            "stage": "Post-Harvest",
+            "days_after_planting": 70,
+            "application": "Apply Potassium Sulphate at 4 kg/acre",
+            "extra_info": "Apply to replenish soil nutrients. Conduct soil testing to adjust future applications."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Preventive",
+            "days_after_planting": 15,
+            "application": "Spray Copper Hydroxide 50g per 15L water to prevent bacterial diseases",
+            "extra_info": "Spray early in the morning for better adhesion. Wear protective gear to avoid inhalation."
+          },
+          {
+            "stage": "Curative",
+            "days_after_planting": 30,
+            "application": "Apply appropriate fungicide for early blight as per manufacturer's instructions",
+            "extra_info": "Ensure thorough coverage of foliage. Rotate fungicides to prevent resistance development."
+          },
+          {
+            "stage": "Late Season",
+            "days_after_planting": 60,
+            "application": "Spray Chlorothalonil for late blight control",
+            "extra_info": "Apply during dry weather to maximize efficacy. Avoid spraying near harvest to comply with pre-harvest intervals."
+          }
+        ]
+      },
+      {
+        "name": "Potato",
+        "season": "Cool season",
+        "sowing_period": "Early spring (March - April) or late summer (August)",
+        "harvest_period": "Summer to fall (June - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply FYM 25 t/ha and NPK 100:150:100 kg/ha",
+            "extra_info": "Mix FYM thoroughly with soil before planting. Ensure NPK is applied in furrows for uniform distribution."
+          },
+          {
+            "stage": "Top Dressing",
+            "days_after_planting": 30,
+            "application": "Apply 100 kg N/ha",
+            "extra_info": "Apply along rows and cover with soil. Irrigate immediately to enhance nitrogen uptake."
+          },
+          {
+            "stage": "Tuber Formation",
+            "days_after_planting": 45,
+            "application": "Apply Potassium Nitrate 30 kg/ha",
+            "extra_info": "Use fertigation for better absorption. Maintain consistent soil moisture during tuber development."
+          },
+          {
+            "stage": "Pre-Harvest",
+            "days_after_planting": 60,
+            "application": "Apply Zinc Sulphate 10 kg/ha",
+            "extra_info": "Foliar application is effective. Apply in the evening to avoid leaf scorching."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Early Growth",
+            "days_after_planting": 15,
+            "application": "Spray Malathion 50 EC in 200 liters of water per acre to control cutworms",
+            "extra_info": "Spray at dusk to target nocturnal pests. Avoid spraying during windy conditions."
+          },
+          {
+            "stage": "Disease Control",
+            "days_after_planting": 30,
+            "application": "Apply Cymoxanil 8% + Mancozeb 64% WP at 2.5 kg/ha for late blight management",
+            "extra_info": "Ensure complete coverage of lower leaves. Reapply after heavy rainfall as per label instructions."
+          },
+          {
+            "stage": "Tuber Moth Control",
+            "days_after_planting": 50,
+            "application": "Spray Chlorpyrifos 20 EC at 500 ml/ha",
+            "extra_info": "Focus on the base of plants. Use protective equipment during application to avoid exposure."
+          }
+        ]
+      },
+      {
+        "name": "Sugarcane",
+        "season": "Warm season",
+        "sowing_period": "Spring (February - April)",
+        "harvest_period": "Winter to early spring (December - March)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply Urea 35 kg/acre, MOP 100 kg/acre, DAP 50 kg/acre",
+            "extra_info": "Apply in furrows before planting. Ensure deep incorporation to prevent nutrient loss."
+          },
+          {
+            "stage": "Fertigation",
+            "days_after_planting": 30,
+            "application": "Apply Urea 1 kg/day/acre, MOP 0.5 kg/day/acre, Magnesium Sulphate 0.5 kg/day/acre",
+            "extra_info": "Use drip irrigation for precise delivery. Monitor soil pH to optimize nutrient availability."
+          },
+          {
+            "stage": "Mid-Growth",
+            "days_after_planting": 60,
+            "application": "Apply Potassium Nitrate 100 kg/acre",
+            "extra_info": "Split application into two doses for better uptake. Irrigate after application to aid absorption."
+          },
+          {
+            "stage": "Pre-Harvest",
+            "days_after_planting": 120,
+            "application": "Apply NPK 20:10:10 at 50 kg/acre",
+            "extra_info": "Apply to support cane ripening. Conduct soil tests to adjust nutrient ratios for next season."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Pest Control",
+            "days_after_planting": 30,
+            "application": "Drench Chlorantraniliprole 18.5% SC at 150 ml/acre in 400 liters of water",
+            "extra_info": "Apply to soil around plant base. Ensure thorough drenching for effective root pest control."
+          },
+          {
+            "stage": "Shoot Borer Control",
+            "days_after_planting": 75,
+            "application": "Apply Spinosad 0.4% EC at 200 ml/acre",
+            "extra_info": "Spray during early morning for better pest contact. Avoid application during flowering to protect pollinators."
+          },
+          {
+            "stage": "Mould Control",
+            "days_after_planting": 100,
+            "application": "Spray Mancozeb at 25g/L for controlling mould",
+            "extra_info": "Ensure uniform coverage of stalks. Reapply if high humidity persists."
+          }
+        ]
+      },
+      {
+        "name": "Brinjal",
+        "season": "Warm season",
+        "sowing_period": "Late winter to early spring (February - April)",
+        "harvest_period": "Summer to fall (June - November)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 20:20:0 NPK at 5 kg/acre",
+            "extra_info": "Mix into soil during transplanting. Ensure even distribution to promote uniform growth."
+          },
+          {
+            "stage": "Vegetative",
+            "days_after_planting": 25,
+            "application": "Apply Urea at 2.5 kg/acre",
+            "extra_info": "Apply as a side dressing. Irrigate lightly to facilitate nitrogen absorption."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 40,
+            "application": "Apply 13:00:45 NPK at 3 kg/acre",
+            "extra_info": "Use fertigation for targeted delivery. Monitor soil moisture to prevent nutrient leaching."
+          },
+          {
+            "stage": "Post-Harvest",
+            "days_after_planting": 75,
+            "application": "Apply Potassium Nitrate at 4 kg/acre",
+            "extra_info": "Apply to restore soil fertility. Conduct soil testing for future nutrient planning."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Early Pest Control",
+            "days_after_planting": 20,
+            "application": "Spray Neem oil 50 ml/15L for aphids",
+            "extra_info": "Apply in the evening to avoid harming beneficial insects. Ensure thorough leaf coverage."
+          },
+          {
+            "stage": "Fruit Borer Control",
+            "days_after_planting": 40,
+            "application": "Spray Spinosad 2.5 ml/15L",
+            "extra_info": "Focus on young fruits and flowers. Reapply every 7-10 days if pest pressure is high."
+          },
+          {
+            "stage": "Late Pest Control",
+            "days_after_planting": 60,
+            "application": "Apply Dimethoate 30 EC at 1.5 ml/L for controlling thrips",
+            "extra_info": "Use protective gear during application. Avoid spraying near harvest to meet safety intervals."
+          }
+        ]
+      },
+      {
+        "name": "Maize",
+        "season": "Warm season",
+        "sowing_period": "Late spring (April - May)",
+        "harvest_period": "Summer to fall (August - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply DAP at 10 kg/acre",
+            "extra_info": "Apply in seed furrows during sowing. Ensure proper mixing with soil to avoid seed burn."
+          },
+          {
+            "stage": "Top Dressing",
+            "days_after_planting": 30,
+            "application": "Apply Urea at 4 kg/acre",
+            "extra_info": "Apply along rows and incorporate into soil. Irrigate to enhance nitrogen uptake."
+          },
+          {
+            "stage": "Post Flowering",
+            "days_after_planting": 50,
+            "application": "Apply Ammonium Sulphate at 5 kg/acre",
+            "extra_info": "Apply during early grain filling. Ensure even distribution to support kernel development."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Stem Borer Control",
+            "days_after_planting": 20,
+            "application": "Apply Chlorantraniliprole 150 ml/acre",
+            "extra_info": "Apply as a foliar spray targeting the whorl. Reapply if pest activity persists."
+          },
+          {
+            "stage": "Leaf Spot Control",
+            "days_after_planting": 40,
+            "application": "Spray Propiconazole at 1 ml/L",
+            "extra_info": "Spray during early disease onset. Ensure coverage of both leaf surfaces."
+          },
+          {
+            "stage": "Pest Control",
+            "days_after_planting": 60,
+            "application": "Spray Imidacloprid 20 ml/L",
+            "extra_info": "Apply during tasseling to protect pollinators. Use protective gear to avoid exposure."
+          }
+        ]
+      },
+      {
+        "name": "Paddy",
+        "season": "Warm season",
+        "sowing_period": "Early summer (May - June)",
+        "harvest_period": "Fall (September - November)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 40:20:20 NPK kg/acre",
+            "extra_info": "Incorporate into soil before transplanting. Ensure uniform application for even growth."
+          },
+          {
+            "stage": "Tillering",
+            "days_after_planting": 25,
+            "application": "Apply Urea 35 kg/acre",
+            "extra_info": "Apply in flooded fields for better absorption. Split into two doses if heavy rainfall is expected."
+          },
+          {
+            "stage": "Panicle Initiation",
+            "days_after_planting": 45,
+            "application": "Apply Potash 25 kg/acre",
+            "extra_info": "Apply to support grain formation. Ensure adequate water levels to facilitate nutrient uptake."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Early Pest Control",
+            "days_after_planting": 15,
+            "application": "Spray Chlorpyrifos 20 EC @ 2.5 ml/L",
+            "extra_info": "Apply to standing water for better pest control. Avoid spraying during strong winds."
+          },
+          {
+            "stage": "Blast Control",
+            "days_after_planting": 30,
+            "application": "Spray Tricyclazole 0.6 g/L",
+            "extra_info": "Spray at the first sign of disease. Reapply after 10-15 days if symptoms persist."
+          },
+          {
+            "stage": "Stem Borer Control",
+            "days_after_planting": 50,
+            "application": "Spray Carbofuran 3G @ 30 kg/ha",
+            "extra_info": "Apply granules to the base of plants. Ensure even distribution to target larvae effectively."
+          }
+        ]
+      },
+      {
+        "name": "Cotton",
+        "season": "Warm season",
+        "sowing_period": "Spring (April - May)",
+        "harvest_period": "Fall to early winter (September - December)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 60:30:30 NPK kg/acre",
+            "extra_info": "Apply in seed furrows during sowing. Ensure deep placement to avoid nutrient loss."
+          },
+          {
+            "stage": "Vegetative",
+            "days_after_planting": 25,
+            "application": "Apply Urea 40 kg/acre",
+            "extra_info": "Apply as side dressing. Irrigate immediately to enhance nitrogen availability."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 45,
+            "application": "Apply Potash 20 kg/acre",
+            "extra_info": "Use fertigation for precise application. Monitor soil moisture to prevent nutrient leaching."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Aphid Control",
+            "days_after_planting": 20,
+            "application": "Spray Imidacloprid @ 1 ml/L",
+            "extra_info": "Spray undersides of leaves for better coverage. Avoid spraying during flowering to protect pollinators."
+          },
+          {
+            "stage": "Bollworm Control",
+            "days_after_planting": 40,
+            "application": "Spray Spinosad @ 2.5 ml/L",
+            "extra_info": "Focus on bolls and flowers. Reapply every 7-10 days if pest pressure is high."
+          },
+          {
+            "stage": "Late Pest Control",
+            "days_after_planting": 60,
+            "application": "Apply Lambda-cyhalothrin @ 1 ml/L",
+            "extra_info": "Apply in the evening to minimize impact on beneficial insects. Use protective gear during application."
+          }
+        ]
+      },
+      {
+        "name": "Chilli",
+        "season": "Warm season",
+        "sowing_period": "Late winter to early spring (February - April)",
+        "harvest_period": "Summer to fall (July - November)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 20:20:0 NPK at 5 kg/acre",
+            "extra_info": "Mix into soil during transplanting. Ensure even distribution to promote uniform growth."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 35,
+            "application": "Apply 13:00:45 NPK at 3 kg/acre",
+            "extra_info": "Use fertigation for targeted delivery. Maintain consistent soil moisture during flowering."
+          },
+          {
+            "stage": "Fruit Development",
+            "days_after_planting": 60,
+            "application": "Apply Calcium Nitrate at 4 kg/acre",
+            "extra_info": "Apply in split doses to enhance fruit quality. Irrigate after application to aid uptake."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Thrips Control",
+            "days_after_planting": 15,
+            "application": "Spray Fipronil 5% SC @ 2 ml/L",
+            "extra_info": "Spray during early morning for better pest contact. Ensure thorough coverage of young leaves."
+          },
+          {
+            "stage": "Mites Control",
+            "days_after_planting": 30,
+            "application": "Spray Abamectin @ 0.5 ml/L",
+            "extra_info": "Focus on leaf undersides where mites congregate. Reapply after 7 days if infestation persists."
+          },
+          {
+            "stage": "Leaf Curl Control",
+            "days_after_planting": 50,
+            "application": "Apply Imidacloprid 200 SL @ 0.3 ml/L",
+            "extra_info": "Spray at the first sign of leaf curl. Avoid overuse to prevent resistance development)."
+          }
+        ]
+      },
+      {
+        "name": "Mango",
+        "season": "Warm season",
+        "sowing_period": "Not applicable (planted as saplings in spring, March - April)",
+        "harvest_period": "Summer (June - August)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Pre-Flowering",
+            "days_after_planting": 0,
+            "application": "Apply FYM 10 kg/tree and 20:20:0 NPK @ 1 kg/tree",
+            "extra_info": "Apply FYM in a ring around the tree base. Incorporate NPK into the soil and irrigate."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 60,
+            "application": "Apply Potassium Nitrate @ 0.5 kg/tree",
+            "extra_info": "Apply as a foliar spray for better absorption. Avoid application during heavy rains."
+          },
+          {
+            "stage": "Fruit Development",
+            "days_after_planting": 120,
+            "application": "Apply Micronutrient mix 100 g/tree",
+            "extra_info": "Use foliar application for micronutrients. Apply in the evening to avoid leaf burn."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Anthracnose Control",
+            "days_after_planting": 30,
+            "application": "Spray Carbendazim @ 1 g/L",
+            "extra_info": "Spray during humid conditions to prevent fungal spread. Ensure coverage of flowers and young fruits."
+          },
+          {
+            "stage": "Mango Hopper",
+            "days_after_planting": 60,
+            "application": "Spray Imidacloprid @ 0.3 ml/L",
+            "extra_info": "Spray during early morning to target hoppers. Avoid spraying during flowering to protect pollinators."
+          },
+          {
+            "stage": "Fruit Fly",
+            "days_after_planting": 90,
+            "application": "Spray Neem oil 2% solution",
+            "extra_info": "Use bait traps in combination with sprays. Apply in the evening to minimize impact on beneficial insects."
+          }
+        ]
+      },
+      {
+        "name": "Apple",
+        "season": "Cool season",
+        "sowing_period": "Not applicable (planted as saplings in late fall or early spring, November or March)",
+        "harvest_period": "Late summer to fall (August - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Dormant",
+            "days_after_planting": 0,
+            "application": "Apply FYM 30 kg/tree and Urea 500 g/tree",
+            "extra_info": "Apply FYM in a ring around the tree. Incorporate urea into the soil and irrigate lightly."
+          },
+          {
+            "stage": "Bud Break",
+            "days_after_planting": 60,
+            "application": "Apply DAP @ 400 g/tree",
+            "extra_info": "Apply in the drip line of the tree. Ensure soil is moist to facilitate nutrient uptake."
+          },
+          {
+            "stage": "Fruit Set",
+            "days_after_planting": 120,
+            "application": "Apply Potassium Sulphate @ 300 g/tree",
+            "extra_info": "Apply to support fruit development. Use fertigation for precise delivery."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Scab Control",
+            "days_after_planting": 30,
+            "application": "Spray Mancozeb @ 2 g/L",
+            "extra_info": "Spray during wet weather to prevent scab. Ensure thorough coverage of leaves and buds."
+          },
+          {
+            "stage": "Aphid Control",
+            "days_after_planting": 45,
+            "application": "Spray Dimethoate 30 EC @ 1 ml/L",
+            "extra_info": "Spray undersides of leaves for better aphid control. Avoid spraying during bloom to protect pollinators."
+          },
+          {
+            "stage": "Codling Moth",
+            "days_after_planting": 90,
+            "application": "Spray Chlorpyrifos 20 EC @ 2 ml/L",
+            "extra_info": "Apply at petal fall and repeat after 14 days. Use pheromone traps for monitoring."
+          }
+        ]
+      },
+      {
+        "name": "Orange",
+        "season": "Warm season",
+        "sowing_period": "Not applicable (planted as saplings in spring, March - April)",
+        "harvest_period": "Winter to early spring (December - March)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply FYM 25 kg/tree and NPK 19:19:19 @ 500 g/tree",
+            "extra_info": "Apply FYM in a ring around the tree base. Incorporate NPK into the soil and irrigate."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 60,
+            "application": "Apply Potassium Nitrate @ 250 g/tree",
+            "extra_info": "Apply as a foliar spray for better absorption. Avoid application during heavy rains."
+          },
+          {
+            "stage": "Fruit Development",
+            "days_after_planting": 120,
+            "application": "Micronutrient mix 100 g/tree",
+            "extra_info": "Use foliar application for micronutrients. Apply in the evening to avoid leaf burn."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Citrus Leaf Miner",
+            "days_after_planting": 20,
+            "application": "Spray Imidacloprid 17.8 SL @ 0.5 ml/L",
+            "extra_info": "Spray young leaves for effective control. Reapply every 10-14 days if infestation persists."
+          },
+          {
+            "stage": "Fruit Sucking Moth",
+            "days_after_planting": 90,
+            "application": "Spray Chlorpyrifos 2 ml/L",
+            "extra_info": "Apply at dusk to target nocturnal moths. Use protective gear during application."
+          },
+          {
+            "stage": "Greening Disease",
+            "days_after_planting": 120,
+            "application": "Spray Dimethoate 1.5 ml/L + Micronutrients",
+            "extra_info": "Combine with micronutrient sprays for better tree health. Monitor for disease symptoms regularly."
+          }
+        ]
+      },
+      {
+        "name": "Guava",
+        "season": "Warm season",
+        "sowing_period": "Not applicable (planted as saplings in spring, March - April)",
+        "harvest_period": "Fall to winter (September - January)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply FYM 20 kg/tree + NPK 10:10:10 @ 500 g/tree",
+            "extra_info": "Apply FYM in a ring around the tree. Incorporate NPK into the soil and irrigate lightly."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 60,
+            "application": "Apply Potassium Sulphate @ 200 g/tree",
+            "extra_info": "Apply to support flower development. Use fertigation for precise delivery."
+          },
+          {
+            "stage": "Fruit Set",
+            "days_after_planting": 100,
+            "application": "Apply Boron @ 10 g/tree",
+            "extra_info": "Apply as a foliar spray to enhance fruit set. Ensure application during early fruit development."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Fruit Fly",
+            "days_after_planting": 70,
+            "application": "Spray Neem oil 2% + Traps",
+            "extra_info": "Use methyl eugenol traps for better control. Spray in the evening to minimize impact on beneficial insects."
+          },
+          {
+            "stage": "Mite Control",
+            "days_after_planting": 90,
+            "application": "Spray Abamectin @ 0.5 ml/L",
+            "extra_info": "Focus on leaf undersides where mites congregate. Reapply after 7 days if infestation persists."
+          },
+          {
+            "stage": "Anthracnose",
+            "days_after_planting": 110,
+            "application": "Spray Carbendazim @ 1 g/L",
+            "extra_info": "Spray during humid conditions to prevent fungal spread. Ensure coverage of fruits and leaves."
+          }
+        ]
+      },
+      {
+        "name": "Soybean",
+        "season": "Warm season",
+        "sowing_period": "Late spring to early summer (May - June)",
+        "harvest_period": "Fall (September - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 20:60:40 NPK kg/acre",
+            "extra_info": "Apply in seed furrows during sowing. Ensure even distribution to promote uniform growth."
+          },
+          {
+            "stage": "Vegetative",
+            "days_after_planting": 20,
+            "application": "Apply Urea 20 kg/acre",
+            "extra_info": "Apply as side dressing. Irrigate immediately to enhance nitrogen availability."
+          },
+          {
+            "stage": "Pod Formation",
+            "days_after_planting": 45,
+            "application": "Apply Potash 10 kg/acre",
+            "extra_info": "Apply to support pod development. Ensure adequate soil moisture during application."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Stem Fly",
+            "days_after_planting": 15,
+            "application": "Spray Dimethoate @ 1.5 ml/L",
+            "extra_info": "Spray at the base of plants for effective control. Use protective gear during application."
+          },
+          {
+            "stage": "Leaf Folder",
+            "days_after_planting": 30,
+            "application": "Spray Lambda-cyhalothrin @ 1 ml/L",
+            "extra_info": "Ensure thorough coverage of foliage. Reapply after 10 days if pest pressure is high."
+          },
+          {
+            "stage": "Girdle Beetle",
+            "days_after_planting": 50,
+            "application": "Spray Profenofos @ 2 ml/L",
+            "extra_info": "Apply during early pest activity. Avoid spraying during flowering to protect pollinators."
+          }
+        ]
+      },
+      {
+        "name": "Beans",
+        "season": "Warm season",
+        "sowing_period": "Late spring to early summer (April - June)",
+        "harvest_period": "Summer to early fall (June - September)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 20:40:20 NPK kg/acre",
+            "extra_info": "Apply in seed furrows during sowing. Ensure proper mixing with soil to avoid seed burn."
+          },
+          {
+            "stage": "Vegetative",
+            "days_after_planting": 15,
+            "application": "Apply Urea 15 kg/acre",
+            "extra_info": "Apply as side dressing. Irrigate lightly to facilitate nitrogen absorption."
+          },
+          {
+            "stage": "Flowering",
+            "days_after_planting": 35,
+            "application": "Apply Potash 10 kg/acre",
+            "extra_info": "Apply to support flower and pod development. Use fertigation for precise delivery."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Aphid Control",
+            "days_after_planting": 10,
+            "application": "Spray Thiamethoxam @ 0.5 g/L",
+            "extra_info": "Spray undersides of leaves for better aphid control. Avoid spraying during bloom to protect pollinators."
+          },
+          {
+            "stage": "Pod Borer",
+            "days_after_planting": 30,
+            "application": "Spray Spinosad @ 2 ml/L",
+            "extra_info": "Focus on young pods and flowers. Reapply every 7-10 days if pest pressure is high."
+          },
+          {
+            "stage": "Rust Control",
+            "days_after_planting": 40,
+            "application": "Spray Mancozeb @ 2 g/L",
+            "extra_info": "Spray during early disease onset. Ensure coverage of both leaf surfaces."
+          }
+        ]
+      },
+      {
+        "name": "Corn",
+        "season": "Warm season",
+        "sowing_period": "Late spring (April - May)",
+        "harvest_period": "Summer to fall (August - October)",
+        "fertilizer_schedule": [
+          {
+            "stage": "Basal",
+            "days_after_planting": 0,
+            "application": "Apply 60:40:20 NPK kg/acre",
+            "extra_info": "Apply in seed furrows during sowing. Ensure deep placement to avoid nutrient loss."
+          },
+          {
+            "stage": "V6 Stage",
+            "days_after_planting": 25,
+            "application": "Apply Urea 40 kg/acre",
+            "extra_info": "Apply as side dressing. Irrigate immediately to enhance nitrogen availability."
+          },
+          {
+            "stage": "Tasseling",
+            "days_after_planting": 45,
+            "application": "Apply Potash 25 kg/acre",
+            "extra_info": "Apply to support grain formation. Ensure adequate soil moisture during application."
+          }
+        ],
+        "pesticide_schedule": [
+          {
+            "stage": "Fall Armyworm",
+            "days_after_planting": 20,
+            "application": "Spray Emamectin Benzoate @ 0.5 g/L",
+            "extra_info": "Spray targeting the whorl for effective control. Reapply after 7-10 days if pest pressure is high."
+          },
+          {
+            "stage": "Stem Borer",
+            "days_after_planting": 35,
+            "application": "Spray Chlorantraniliprole @ 0.4 ml/L",
+            "extra_info": "Apply as a foliar spray targeting the whorl. Reapply if pest activity persists."
+          },
+          {
+            "stage": "Aphid Control",
+            "days_after_planting": 50,
+            "application": "Spray Dimethoate @ 2 ml/L",
+            "extra_info": "Spray during tasseling to protect pollinators. Use protective gear to avoid exposure."
+          }
+        ]
+      }
+    ]
+  }

@@ -4,13 +4,15 @@ const openCameraBtn = document.getElementById('openCameraBtn');
 const pasteBox = document.getElementById('pasteBox');
 const predictionOutput = document.getElementById('predictionOutput');
 const preview = document.getElementById('preview');
+const resultBox = document.getElementById('result');
+const errorMessage = document.getElementById('error-message');
 const themeToggle = document.getElementById('theme-toggle');
 const liveCamera = document.getElementById('liveCamera');
 const captureBtn = document.getElementById('captureBtn');
 const predictBtn = document.getElementById("predictBtn");
 
 let currentStream = null;
-let selectedImageFile = null; // <-- To keep track of the selected image
+let selectedImageFile = null;
 
 // === Utility: Clear All Inputs ===
 function clearAllInputs() {
@@ -19,10 +21,10 @@ function clearAllInputs() {
   preview.classList.add("hidden");
   stopCamera();
   selectedImageFile = null;
-  if (pasteBox) {
-    pasteBox.value = '';
-    pasteBox.innerHTML = '';
-  }
+  if (pasteBox) pasteBox.value = '';
+  errorMessage.style.display = "none";
+  resultBox.style.display = "none";
+  predictionOutput.textContent = "";
 }
 
 // === Stop Live Camera ===
@@ -38,60 +40,75 @@ function stopCamera() {
 // === Predict Button Handler ===
 predictBtn?.addEventListener("click", async () => {
   if (!selectedImageFile) {
-    predictionOutput.textContent = "Please upload, capture, or paste an image first.";
+    predictionOutput.textContent = "⚠️ Please upload, capture, or paste an image first.";
     return;
   }
 
   const formData = new FormData();
-  formData.append("file", selectedImageFile);
+  formData.append("image", selectedImageFile);
 
-  // Show preview
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    preview.src = e.target.result;
-    preview.classList.remove("hidden");
-  };
-  reader.readAsDataURL(selectedImageFile);
-
-  predictionOutput.textContent = "Predicting...";
+  predictionOutput.textContent = "🔍 Predicting...";
+  resultBox.style.display = "none";
+  errorMessage.style.display = "none";
 
   try {
-    const response = await fetch("/", {
+    const response = await fetch("https://disease-2-gqkg.onrender.com/predict", {
       method: "POST",
       body: formData,
     });
 
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const result = doc.querySelector("#predictionOutput")?.textContent;
+    if (!response.ok) throw new Error("Failed to fetch prediction");
 
-    predictionOutput.textContent = result || "Could not parse prediction.";
+    const data = await response.json();
+    if (data.error) throw new Error(data.error);
+
+    // Update preview if needed
+    preview.classList.remove("hidden");
+
+    // Fill prediction results
+    predictionOutput.innerHTML = `<h3>🩺 Prediction: ${data.label}</h3><p>Confidence: ${data.confidence.toFixed(2)}%</p>`;
+
+    const buildListHTML = (items) => items.map(i => `<li>${i}</li>`).join("");
+
+    document.getElementById('symptoms-list').innerHTML = buildListHTML(data.disease_details.symptoms);
+    document.getElementById('prevention-list').innerHTML = buildListHTML(data.disease_details.prevention);
+    document.getElementById('safety-tips-list').innerHTML = buildListHTML(data.disease_details.safety_tips);
+
+    document.getElementById('organic-alternatives-list').innerHTML = data.disease_details.organic_alternatives.map(alt =>
+      `<li><strong>${alt.name}:</strong> ${alt.application} (Dosage: ${alt.dosage})</li>`
+    ).join("");
+
+    document.getElementById('treatments-list').innerHTML = data.disease_details.treatments.map(t =>
+      `<li><strong>${t.name}:</strong> ${t.application} (Dosage: ${t.dosage}, Frequency: ${t.frequency}, Pre-Harvest Interval: ${t.pre_harvest_interval})</li>
+       <li><strong>Brand Examples:</strong> ${t.brand_examples.join(", ")}</li>`
+    ).join("");
+
+    resultBox.style.display = "block";
   } catch (error) {
-    console.error(error);
-    predictionOutput.textContent = "Error occurred during prediction.";
+    console.error("Prediction error:", error);
+    predictionOutput.textContent = "";
+    errorMessage.textContent = "❌ Error: " + error.message;
+    errorMessage.style.display = "block";
   }
 });
 
 // === File Upload from System ===
 fileInput?.addEventListener('change', (e) => {
-  const file = e.target.files[0]; // Get file BEFORE clearing inputs
+  const file = e.target.files[0];
   clearAllInputs();
-
   if (file && file.type.startsWith('image/')) {
     selectedImageFile = file;
     preview.src = URL.createObjectURL(file);
     preview.classList.remove("hidden");
     predictionOutput.textContent = "✅ Image ready. Click Predict.";
   } else {
-    predictionOutput.textContent = "Please select a valid image file.";
+    predictionOutput.textContent = "⚠️ Please select a valid image file.";
   }
 });
 
 // === Open Camera on Button Click ===
 openCameraBtn?.addEventListener('click', async () => {
   clearAllInputs();
-
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     currentStream = stream;
@@ -116,9 +133,8 @@ captureBtn?.addEventListener('click', () => {
   canvas.toBlob((blob) => {
     if (blob) {
       clearAllInputs();
-      const file = new File([blob], "camera_capture.png", { type: "image/png" });
-      selectedImageFile = file;
-      preview.src = URL.createObjectURL(file);
+      selectedImageFile = new File([blob], "camera_capture.png", { type: "image/png" });
+      preview.src = URL.createObjectURL(selectedImageFile);
       preview.classList.remove("hidden");
       predictionOutput.textContent = "✅ Image captured. Click Predict.";
     }
@@ -139,5 +155,5 @@ pasteBox?.addEventListener('paste', (e) => {
       return;
     }
   }
-  predictionOutput.textContent = "Please paste an image.";
+  predictionOutput.textContent = "⚠️ Please paste an image.";
 });

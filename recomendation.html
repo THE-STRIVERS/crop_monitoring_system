@@ -1,59 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crop Recommendation System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/recomendation.css">
-  <script src="/dark.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/dark.js" defer></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-  
   <!-- Navbar -->
-  <nav class="navbar flex justify-between items-center px-6 py-4  shadow-md sticky top-0 z-50">
-    <div class="flex items-center gap-3 logo-container">
-      <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
-      <h1 class="text-xl font-bold text-green-600"></h1>
-    </div>
-    <div class="nav-buttons flex items-center gap-4">
-      <button id="theme-toggle" class="text-xl">🌙</button>
-      <a href="index.html" class="nav-btn">Pre AI</a>
-      <a href="cropd.html" class="nav-btn">Post AI</a>
-      <a href="/recomendation.html" class="nav-btn">recommendation</a>
-      <a href="/marketprice.html" class="nav-btn">marketprice</a>
-    </div>
-  </nav>
-
-  <!-- 🧪 Crop Recommendation Form -->
-  <div class="container">
-    <h1>🌾 Crop Recommendation System</h1>
-    
-    <label>🧪 Nitrogen (N)</label>
-    <input type="number" id="n" step="0.1" placeholder="e.g. 90">
-
-    <label>🧪 Phosphorus (P)</label>
-    <input type="number" id="p" step="0.1" placeholder="e.g. 40">
-
-    <label>🧪 Potassium (K)</label>
-    <input type="number" id="k" step="0.1" placeholder="e.g. 43">
-
-    <label>🌡 Temperature (°C)</label>
-    <input type="number" id="temperature" step="0.1" placeholder="e.g. 25.6">
-
-    <label>💧 Humidity (%)</label>
-    <input type="number" id="humidity" step="0.1" placeholder="e.g. 80">
-
-    <label>🌱 Soil pH</label>
-    <input type="number" id="ph" step="0.1" placeholder="e.g. 6.5">
-
-    <label>🌧 Rainfall (mm)</label>
-    <input type="number" id="rainfall" step="0.1" placeholder="e.g. 200">
-
-    <button onclick="recommendCrop()">Get Recommendation</button>
-
-    <div class="result" id="result"></div>
+<nav class="bg-blue-50 shadow px-4 py-2 flex justify-between items-center sticky top-0 z-50 h-14">
+  <div class="flex items-center gap-2">
+    <img src="/updated_logo-removebg-preview.png" alt="Logo" class="w-28 h-30 hover:scale-110 transition-transform duration-300" />
+    <!-- 🌐 Google Translate Dropdown -->
+    <div id="google_translate_element" class="ml-2"></div>
   </div>
+  <div class="flex items-center gap-6 text-base font-medium">
+    <button id="theme-toggle" class="text-xl">🌙</button>
+    <a href="index.html" class="hover:text-green-600">Pre AI</a>
+    <a href="cropd.html" class="hover:text-green-600">Post AI</a>
+    <a href="/recomendation.html" class="hover:text-green-600 font-semibold text-green-700">Recommendation</a>
+    <select id="moreDropdown" class="border rounded px-3 py-1.5 text-base">
+      <option disabled selected>More</option>
+      <option value="marketprice.html">Market Price</option>
+      <option value="/chatbot.html">Chatbot</option>
+      <option value="ecommerce.html">Fertilizer Info</option>
+    </select>
+  </div>
+</nav>
+
+
+
+  <script>
+    document.getElementById('moreDropdown').addEventListener('change', function () {
+      const selectedValue = this.value;
+      if (selectedValue) {
+        window.location.href = selectedValue;
+      }
+    });
+  </script>
+
+  <!-- Main Content: Form + Blank Box -->
+  <div class="flex flex-col md:flex-row gap-6 p-6">
+    
+    <!-- Left Side: Form -->
+    <div class="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold text-green-700 mb-4 text-center">🌾 Crop Recommendation System</h1>
+
+      <label class="block mt-4">🧪 Nitrogen (N)</label>
+      <input type="number" id="n" class="w-full p-2 border rounded" placeholder="e.g. 90">
+
+      <label class="block mt-4">🧪 Phosphorus (P)</label>
+      <input type="number" id="p" class="w-full p-2 border rounded" placeholder="e.g. 40">
+
+      <label class="block mt-4">🧪 Potassium (K)</label>
+      <input type="number" id="k" class="w-full p-2 border rounded" placeholder="e.g. 43">
+
+      <label class="block mt-4">🌡 Temperature (°C)</label>
+      <input type="number" id="temperature" class="w-full p-2 border rounded" placeholder="e.g. 25.6">
+
+      <label class="block mt-4">💧 Humidity (%)</label>
+      <input type="number" id="humidity" class="w-full p-2 border rounded" placeholder="e.g. 80">
+
+      <label class="block mt-4">🌱 Soil pH</label>
+      <input type="number" id="ph" class="w-full p-2 border rounded" placeholder="e.g. 6.5">
+
+      <label class="block mt-4">🌧 Rainfall (mm)</label>
+      <input type="number" id="rainfall" class="w-full p-2 border rounded" placeholder="e.g. 200">
+
+      <label class="block mt-4">🍂 Season</label>
+      <select id="season" class="w-full p-2 border rounded">
+        <option value="Summer">Summer</option>
+        <option value="Winter">Winter</option>
+        <option value="Autumn">Autumn</option>
+        <option value="Spring">Spring</option>
+        <option value="Monsoon">Monsoon</option>
+      </select>
+
+      <button onclick="recommendCrop()" class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded">Get Recommendation</button>
+
+      <div class="mt-6 p-4 bg-green-100 text-green-800 rounded shadow" id="result"></div>
+    </div>
+
+    <!-- Right Side: Crop Scheduler -->
+    <div class="w-full md:w-1/2 bg-white rounded-xl shadow-xl p-6">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">🌿 Crop Scheduler</h1>
+
+      <!-- Search Bar -->
+      <input type="text" id="crop-search" placeholder="Search crop..." class="w-full mb-6 p-2 border rounded-lg" oninput="filterCrops()">
+
+      <!-- Crop Info -->
+      <div id="crop-info" class="mb-4"></div>
+
+      <!-- Fertilizer Schedule -->
+      <div>
+        <h2 class="text-xl font-semibold text-blue-900 mb-2">Fertilizer Schedule</h2>
+        <div id="fertilizer-schedule" class="space-y-4"></div>
+      </div>
+
+      <!-- Pesticide Schedule -->
+      <div class="mt-6">
+        <h2 class="text-xl font-semibold text-blue-900 mb-2">Pesticide Schedule</h2>
+        <div id="pesticide-schedule" class="space-y-4"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,bn,mr,pa,ur', // add more languages as needed
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
 
   <script src="/recomendation.js"></script>
 </body>

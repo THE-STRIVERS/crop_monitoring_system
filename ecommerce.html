@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesticide Store</title>
+  <link rel="stylesheet" href="/ecommerce.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="dark.js"></script>
+</head>
+<body>
+  <!-- 🟩 Navbar -->
+<nav class="navbar flex justify-between items-center px-6 py-4 shadow-md sticky top-0 z-50 bg-[#e3f2fd] ">
+    <!-- Left: Logo -->
+    <div class="flex items-center gap-3 logo-container">
+      <img src="/updated_logo-removebg-preview.png" alt="Logo" class="logo w-32 h-auto" />
+    </div>
+  
+    <!-- Center: Navigation Links -->
+    <div class="nav-buttons flex items-center gap-4">
+      <button id="theme-toggle" class="nav-btn theme-toggle text-xl">🌙</button>
+      <a href="index.html" class="nav-btn">Pre AI</a>
+      <a href="cropd.html" class="nav-btn">Post AI</a>
+      <a href="/recomendation.html" class="nav-btn">Recommendation</a>
+      <select id="moreDropdown" class="nav-dropdown">
+        <option disabled selected>More</option>
+        <option value="marketprice.html">Market Price</option>
+        <option value="/chatbot.html">Chatbot</option>
+        <option value="ecommerce.html">Fertilizer</option>
+      </select>
+    </div>
+  
+    <!-- Right: Search Bar + Icons -->
+    <div class="flex items-center gap-4">
+      <input
+        type="text"
+        id="searchBar"
+        placeholder="Search pesticides..."
+        class="w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-[#2c2c2c] dark:text-white dark:border-gray-600"
+      />
+      <button id="cart-icon" class="text-2xl hover:text-green-600 cursor-pointer">🛒</button>
+      <button id="settings-icon" class="text-2xl hover:text-green-600 cursor-pointer">⚙️</button>
+    </div>
+  </nav>
+  
+  
+
+  <main class="pesticide-grid-container p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-[#f0f9f4]">
+    <!-- Product cards will be injected here from JS -->
+</main>
+
+  
+  
+  
+
+  <!-- 🟩 Cart Modal -->
+  <div id="cart-modal" class="hidden fixed right-4 top-20 bg-white  p-4 rounded shadow-lg w-64 z-50">
+    <h2 class="text-lg font-semibold mb-2">Your Cart</h2>
+    <ul id="cart-items" class="text-sm mb-3"></ul>
+    <button onclick="checkout()" class="bg-green-600 text-white px-4 py-2 rounded">Checkout</button>
+  </div>
+
+  <script src="/ecommerce.js"></script>
+</body>
+</html>

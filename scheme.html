@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Schemes for Farmers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 p-4">
+
+  <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-green-700 mb-2">🌾 Farmer Scheme Portal</h1>
+    <p class="text-gray-700 mb-6">Explore schemes by the Department of Agriculture & Farmers Welfare across India.</p>
+
+    <div class="flex gap-2 mb-6">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search schemes by name or keyword..."
+        class="flex-1 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+      />
+      <button
+        onclick="filterSchemes()"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+      >
+        Search
+      </button>
+    </div>
+
+    <div id="schemeList" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Schemes will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script>
+    let allSchemes = [];
+  
+    // Replace with your actual API key and resource ID
+    const apiKey = "579b464db66ec23bdd0000011cf3d78fcf494f4164cdccb8704c30e8";
+    const apiUrl = `https://api.data.gov.in/resource/3c07d8d3-15f6-41e1-91f6-05a058b7097d?api-key=${apiKey}&format=json&limit=100`;
+  
+    // Fetch data from API
+    async function fetchSchemes() {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        allSchemes = data.records; // each record contains scheme data
+        displaySchemes(allSchemes);
+      } catch (error) {
+        console.error("Failed to fetch schemes:", error);
+        document.getElementById("schemeList").innerHTML = `
+          <p class="text-red-500 col-span-2">Failed to load data. Please try again later.</p>
+        `;
+      }
+    }
+  
+    function displaySchemes(data) {
+      const list = document.getElementById("schemeList");
+      list.innerHTML = "";
+  
+      if (data.length === 0) {
+        list.innerHTML = `<p class="text-red-500 col-span-2">No schemes found for your search.</p>`;
+        return;
+      }
+  
+      data.forEach((scheme, index) => {
+        const card = document.createElement("div");
+        card.className = "bg-white border-l-4 border-green-500 p-4 rounded-lg shadow";
+  
+        card.innerHTML = `
+          <h2 class="text-lg font-semibold text-green-700">${scheme["name_of_mission_scheme"] || `Scheme #${index + 1}`}</h2>
+          <p class="text-gray-700 mt-1">${scheme["description"] || "No description available."}</p>
+        `;
+  
+        list.appendChild(card);
+      });
+    }
+  
+    function filterSchemes() {
+      const keyword = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = allSchemes.filter((scheme) =>
+        scheme["name_of_mission_scheme"]?.toLowerCase().includes(keyword) ||
+        scheme["description"]?.toLowerCase().includes(keyword)
+      );
+      displaySchemes(filtered);
+    }
+  
+    // Initial call
+    fetchSchemes();
+  </script>
+  
+</body>
+</html>
