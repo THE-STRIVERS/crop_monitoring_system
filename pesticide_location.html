@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pesticide Shops Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    #back-button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    #back-button:hover {
+      background-color: #0056b3;
+    }
+
+    h2 {
+      color: #333;
+      margin: 20px;
+    }
+
+    #map {
+      height: 500px;
+      width: 90%;
+      margin: 0 auto 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a id="back-button" href="cropd.html">← Back</a>
+
+
+  <h2>Pesticide Shops in Andhra Pradesh + Your Location</h2>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([13.8, 78.2], 9);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    const shops = [
+      {
+        name: "Krishna Seeds & Pesticides",
+        lat: 13.7757,
+        lng: 78.0537,
+        address: "Kadapa - Bengaluru Hwy, Subbagundlapalli, Karnataka 563135"
+      },
+      {
+        name: "Sri Lakshmi Venkateshwara Traders",
+        lat: 13.7864,
+        lng: 78.4996,
+        address: "Rangasamudram Rd, B.Kothakota, Andhra Pradesh 517370"
+      },
+      {
+        name: "Dhanalakshmi Traders",
+        lat: 13.8826,
+        lng: 78.4070,
+        address: "R.Complex, Y.L, MG Rd, Chowdareddy"
+      }
+    ];
+
+    shops.forEach(shop => {
+      L.marker([shop.lat, shop.lng]).addTo(map)
+        .bindPopup(`<b>${shop.name}</b><br>${shop.address}`);
+    });
+
+    map.locate({ setView: false, maxZoom: 16 });
+
+    function onLocationFound(e) {
+      const userMarker = L.marker(e.latlng).addTo(map);
+      userMarker.bindPopup("You are here!").openPopup();
+
+      const allPoints = shops.map(s => [s.lat, s.lng]);
+      allPoints.push([e.latitude, e.longitude]);
+      map.fitBounds(allPoints);
+    }
+
+    function onLocationError(e) {
+      alert("Could not detect your location: " + e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+  </script>
+</body>
+</html>
